@@ -159,7 +159,7 @@ fun SummaryItem(label: String, value: Long, isTotal: Boolean = false) {
             style = if (isTotal) MaterialTheme.typography.bodyLarge else MaterialTheme.typography.bodyMedium
         )
         Text(
-            text = formatarCentavosParaReais(value),
+            text = formatCentsToReal(value),
             modifier = Modifier.weight(1f),
             style = if (isTotal) MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold) else MaterialTheme.typography.bodyMedium
         )
@@ -192,7 +192,7 @@ fun FinancialMovementCard(financialMovement: FinancialMovement, modifier: Modifi
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = formatarCentavosParaReais(financialMovement.amount),
+                    text = formatCentsToReal(financialMovement.amount),
                     modifier = Modifier.weight(1f),
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontWeight = FontWeight.Bold,
@@ -208,10 +208,10 @@ fun FinancialMovementCard(financialMovement: FinancialMovement, modifier: Modifi
     }
 }
 
-fun formatarCentavosParaReais(centavos: Long): String {
-    val valorEmReais = centavos / 100.0
-    val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-    return formatador.format(valorEmReais)
+fun formatCentsToReal(cents: Long): String {
+    val amountInReal = cents / 100.0
+    val numberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+    return numberFormat.format(amountInReal)
 }
 
 @Composable
