@@ -182,7 +182,7 @@ fun FinancialMovementCard(financialMovement: FinancialMovement, modifier: Modifi
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = financialMovement.cause,
+                text = financialMovement.description,
                 modifier = Modifier.fillMaxWidth(),
                 style = MaterialTheme.typography.bodyLarge.copy(color = textColor)
             )
