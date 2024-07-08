@@ -215,13 +215,6 @@ fun formatCentsToReal(cents: Long): String {
 }
 
 @Composable
-fun UpdateButton(viewModel: MainViewModel) {
-    Button(onClick = { viewModel.fetchSummary(viewModel.currentDate.value) }) {
-        Icon(imageVector = Icons.Default.Refresh, contentDescription = "Atualizar")
-    }
-}
-
-@Composable
 fun LoadingComponent() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         CircularProgressIndicator()
@@ -242,7 +235,9 @@ fun MonthControlButtons(viewModel: MainViewModel) {
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        UpdateButton(viewModel)
+        Button(onClick = { viewModel.fetchSummary(viewModel.currentDate.value) }) {
+            Icon(imageVector = Icons.Default.Refresh, contentDescription = "Atualizar")
+        }
 
         Spacer(modifier = Modifier.width(8.dp))
 
