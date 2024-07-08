@@ -8,7 +8,7 @@ import java.time.Month
 import java.time.Year
 
 interface MyFinanceApiClient {
-    @GET("/entries/summary")
+    @GET("/financial-movement/summary")
     fun summary(@Query("month") month: Month,
                 @Query("year") year: Int): Call<Summary>
 

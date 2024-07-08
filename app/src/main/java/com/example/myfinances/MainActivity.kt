@@ -101,7 +101,7 @@ fun HomeView(viewModel: MainViewModel, modifier: Modifier = Modifier) {
         )
 
         LazyColumn {
-            items(summary.entries) { financialMovement ->
+            items(summary.financialMovements) { financialMovement ->
                 FinancialMovementCard(
                     financialMovement = financialMovement,
                     modifier = Modifier.padding(8.dp)
